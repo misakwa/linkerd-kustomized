@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: linkerd-tap-tls
+  namespace: linkerd
+spec:
+  secretName: linkerd-tap-tls
+  duration: 8760h
+  renewBefore: 72h
+  issuerRef:
+    name: linkerd-trust-anchor
+    kind: Issuer
+  commonName: linkerd-tap.linkerd.svc
+  isCA: true
+  keyAlgorithm: ecdsa
+  usages:
+  - cert sign
+  - crl sign
+  - server auth
+  - client auth

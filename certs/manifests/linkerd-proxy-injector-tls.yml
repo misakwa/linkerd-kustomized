@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: linkerd-proxy-injector-tls
+  namespace: linkerd
+spec:
+  secretName: linkerd-proxy-injector-tls
+  duration: 8760h
+  renewBefore: 72h
+  issuerRef:
+    name: linkerd-trust-anchor
+    kind: Issuer
+  commonName: linkerd-proxy-injector.linkerd.svc
+  isCA: true
+  keyAlgorithm: ecdsa
+  usages:
+  - cert sign
+  - crl sign
+  - server auth
+  - client auth

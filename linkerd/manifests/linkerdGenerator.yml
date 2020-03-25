@@ -1,0 +1,5 @@
+apiVersion: bash
+kind: gen-linkerd
+metadata:
+  name: linkerdGenerator
+args: []

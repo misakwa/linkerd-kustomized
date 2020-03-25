@@ -1,0 +1,7 @@
+resources:
+  - manifests/linkerd-namespace.yml
+  - manifests/linkerd-trust-anchor.yml
+  - manifests/linkerd-identity-issuer.yml
+  # - manifests/linkerd-tap-tls.yml
+  # - manifests/linkerd-sp-validator-tls.yml
+  # - manifests/linkerd-proxy-injector-tls.yml

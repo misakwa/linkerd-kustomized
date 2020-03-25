@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euxo pipefail
+
+# Skip the config file name arg
+shift
+
+if ! [ -x "$(command -v linkerd 2> /dev/null)" ]; then
+    echo "linkerd not found in path. Please install it here: https://linkerd.io/2/getting-started/" >&2
+    exit 1
+fi
+
+if linkerd check --proxy --namespace=linkerd >/dev/null 2>&1 ;then
+    linkerd upgrade --ha --disable-heartbeat
+else
+    linkerd install --ha --disable-heartbeat --identity-external-issuer
+fi
