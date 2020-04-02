@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: linkerd-smi-metrics-tls
+  namespace: linkerd
+spec:
+  secretName: linkerd-smi-metrics-tls
+  duration: 8760h
+  renewBefore: 72h
+  issuerRef:
+    name: linkerd-trust-anchor
+    kind: Issuer
+  commonName: linkerd-smi-metrics.linkerd.svc
+  isCA: true
+  keyAlgorithm: ecdsa
+  usages:
+  - cert sign
+  - crl sign
+  - server auth
+  - client auth

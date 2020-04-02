@@ -10,7 +10,7 @@ if ! [ -x "$(command -v linkerd 2> /dev/null)" ]; then
 fi
 
 if linkerd check --proxy --namespace=linkerd >/dev/null 2>&1 ;then
-    linkerd upgrade --ha --disable-heartbeat
+    linkerd upgrade
 else
-    linkerd install --ha --disable-heartbeat --identity-external-issuer
+    linkerd install --ha --disable-heartbeat --tls-manager=cert-manager.io
 fi

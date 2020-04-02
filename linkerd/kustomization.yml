@@ -4,7 +4,8 @@ generators:
 # NOTE: These are disabled until proxy-injector, sp-validator, and tap can be
 # automatically rotated with cert-manager
 
-# patchesStrategicMerge:
-#   - manifests/inject-proxy-injector-cert.yml
-#   - manifests/inject-sp-validator-cert.yml
-#   - manifests/inject-tap-cert.yml
+patchesStrategicMerge:
+  - manifests/inject-proxy-injector-cert.yml
+  - manifests/inject-sp-validator-cert.yml
+  - manifests/inject-tap-cert.yml
+  - manifests/smi-metrics-cert.yml
